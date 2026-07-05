@@ -21,23 +21,38 @@ const body = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
+const __jsonld = {"@context":"https://schema.org","@type":"Event","name":"Birthday Party Kayla","description":"Undangan ulang tahun digital"};
+
 export const metadata = {
-  metadataBase: new URL('https://undangan.example.com'),
-  title: config.meta.title,
-  description: config.meta.description,
+  metadataBase: new URL("https://undangan-birthday.vercel.app"),
+  title: "Undangan Ulang Tahun Digital — Kayla",
+  description: "Undangan ulang tahun digital ceria dan penuh warna: detail pesta, galeri, lokasi, dan RSVP. Buat momen spesial makin berkesan.",
+  applicationName: "Undangan Digital",
+  keywords: ["undangan ulang tahun", "undangan ultah digital", "birthday invitation", "undangan pesta anak"],
+  authors: [{ name: "Undangan Digital" }],
+  creator: "Undangan Digital",
+  publisher: "Undangan Digital",
+  alternates: { canonical: "https://undangan-birthday.vercel.app" },
   openGraph: {
-    title: config.meta.title,
-    description: config.meta.description,
-    type: 'website',
-    locale: 'id_ID',
-    images: [{ url: config.person.photo, width: 600, height: 800 }],
+    type: "website",
+    locale: "id_ID",
+    url: "https://undangan-birthday.vercel.app",
+    siteName: "Undangan Digital",
+    title: "Undangan Ulang Tahun Digital — Kayla",
+    description: "Undangan ulang tahun digital ceria dan penuh warna: detail pesta, galeri, lokasi, dan RSVP. Buat momen spesial makin berkesan.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Undangan Ulang Tahun Digital — Kayla" }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: config.meta.title,
-    description: config.meta.description,
+    card: "summary_large_image",
+    title: "Undangan Ulang Tahun Digital — Kayla",
+    description: "Undangan ulang tahun digital ceria dan penuh warna: detail pesta, galeri, lokasi, dan RSVP. Buat momen spesial makin berkesan.",
+    images: ["/og.jpg"],
   },
-  robots: { index: false, follow: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
 };
 
 export const viewport = {
@@ -49,7 +64,8 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id" className={`${display.variable} ${script.variable} ${body.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
+        </body>
     </html>
   );
 }
