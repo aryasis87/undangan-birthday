@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TEMA BIRTHDAY — Party Pass (pop: pink, ungu, kuning)
+   Konsep tiket pesta: konfeti, warna ceria, kartu tiket berperforasi.
+   ============================================================ */
+@theme {
+  --color-cream: #fff6f9;
+  --color-blush: #ffe3ef;
+  --color-rose: #ff4d8d;
+  --color-rose-deep: #7c3aed;
+  --color-gold: #ffd23f;
+  --color-ink: #2b1733;
+  --color-muted: #8a7a92;
+
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+  --font-script: var(--font-shrikhand), cursive;
+  --font-body: var(--font-jakarta), system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-script { font-family: var(--font-script); }
+
+/* --- Tiket pesta: lubang perforasi di kiri-kanan --- */
+.ticket {
+  position: relative;
+  background: var(--color-cream);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 45px -20px rgba(124, 58, 237, 0.5);
+}
+.ticket::before, .ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  background: var(--color-blush);
+  border-radius: 9999px;
+  transform: translateY(-50%);
+}
+.ticket::before { left: -14px; }
+.ticket::after { right: -14px; }
+
+/* --- Gaya brutalist pop (porting Stitch "Confetti Pop Party") --- */
+.hard-shadow { box-shadow: 6px 6px 0 var(--color-ink); border: 2px solid var(--color-ink); }
+.hard-shadow-sm { box-shadow: 4px 4px 0 var(--color-ink); border: 2px solid var(--color-ink); }
+.text-hard-shadow { text-shadow: 6px 6px 0 var(--color-ink); }
+
+@keyframes pulse-scale { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.animate-pulse-scale { animation: pulse-scale 2s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: var(--color-blush); }
+::-webkit-scrollbar-thumb { background: var(--color-rose); border-radius: 9999px; }
+
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+.animate-floaty { animation: floaty 4s ease-in-out infinite; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-12vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(112vh) rotate(540deg); opacity: 0.9; }
+}
+
+:focus-visible { outline: 3px solid var(--color-rose-deep); outline-offset: 2px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
