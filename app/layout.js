@@ -24,7 +24,7 @@ const body = Plus_Jakarta_Sans({
 const __jsonld = {"@context":"https://schema.org","@type":"Event","name":"Birthday Party Kayla","description":"Undangan ulang tahun digital"};
 
 export const metadata = {
-  metadataBase: new URL("https://undangan-birthday.vercel.app"),
+  metadataBase: new URL("https://birthday.pintuweb.com"),
   title: "Undangan Ulang Tahun Digital — Kayla",
   description: "Undangan ulang tahun digital ceria dan penuh warna: detail pesta, galeri, lokasi, dan RSVP. Buat momen spesial makin berkesan.",
   applicationName: "Undangan Digital",
@@ -32,11 +32,11 @@ export const metadata = {
   authors: [{ name: "Undangan Digital" }],
   creator: "Undangan Digital",
   publisher: "Undangan Digital",
-  alternates: { canonical: "https://undangan-birthday.vercel.app" },
+  alternates: { canonical: "https://birthday.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://undangan-birthday.vercel.app",
+    url: "https://birthday.pintuweb.com",
     siteName: "Undangan Digital",
     title: "Undangan Ulang Tahun Digital — Kayla",
     description: "Undangan ulang tahun digital ceria dan penuh warna: detail pesta, galeri, lokasi, dan RSVP. Buat momen spesial makin berkesan.",
