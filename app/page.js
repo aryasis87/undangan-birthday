@@ -18,11 +18,6 @@ import MusicPlayer from '@/components/MusicPlayer';
 export default function Home() {
   const [opened, setOpened] = useState(false);
 
-  const handleRSVP = (data) => {
-    // TODO: kirim ke backend/Firebase
-    console.log('RSVP:', data);
-  };
-
   return (
     <main>
       <Decorations />
@@ -39,7 +34,7 @@ export default function Home() {
           <Wishlist />
           <Gallery />
           <MapEmbed />
-          <RSVPForm onSubmit={handleRSVP} />
+          <RSVPForm />
           <WishesForm />
           <Footer />
           <MusicPlayer playing={opened} />

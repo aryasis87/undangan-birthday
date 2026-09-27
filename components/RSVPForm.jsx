@@ -2,7 +2,11 @@
 import { useState } from 'react';
 import { PartyPopper } from 'lucide-react';
 
-// Konfirmasi kehadiran gaya pesta (data lokal/dummy).
+// Konfirmasi kehadiran gaya pesta. Ini undangan contoh: data tidak dikirim ke mana pun.
+const PESAN_URL =
+  'https://wa.me/6281339908765?text=' +
+  encodeURIComponent('Halo PintuWeb, saya mau pesan undangan ulang tahun digital seperti contoh Kayla.');
+
 export default function RSVPForm({ onSubmit }) {
   const [form, setForm] = useState({ name: '', attendance: 'hadir', guests: 1 });
   const [done, setDone] = useState(false);
@@ -30,6 +34,12 @@ export default function RSVPForm({ onSubmit }) {
             </div>
             <p className="mt-4 font-display text-2xl font-extrabold text-ink">Yay, {form.name}!</p>
             <p className="mt-1 text-sm text-muted">Sampai jumpa di pesta! 🎉</p>
+            <p className="mt-4 text-xs font-semibold text-muted">
+              Psst, ini undangan contoh, jadi konfirmasimu nggak dikirim ke mana-mana.{' '}
+              <a href={PESAN_URL} target="_blank" rel="noopener noreferrer" className="text-rose underline underline-offset-2 hover:text-ink">
+                Mau undangan kayak gini?
+              </a>
+            </p>
           </div>
         ) : (
           <form onSubmit={submit} className="mt-7 space-y-4 text-left">

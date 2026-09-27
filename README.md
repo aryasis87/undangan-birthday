@@ -1,5 +1,11 @@
 # Undangan Digital — Birthday (Party Pass)
 
+**Demo live:** https://undangan-birthday.vercel.app
+
+![Tangkapan layar](public/og.jpg)
+
+> Undangan contoh dengan data fiktif. Formulir RSVP hanya demo dan tidak mengirim data.
+
 Konsep **tiket pesta** energetik — strukturnya beda dari varian lain:
 
 - **PartyCover** — sampul meriah (balon, foto bulat, *Buka Undangan*)
@@ -18,3 +24,7 @@ Tema pop pink/ungu/kuning, font **Outfit + Shrikhand + Plus Jakarta Sans**. Resp
 npm install && npm run dev
 ```
 Semua konten di **`lib/data.js`** (objek `person`, `party`, `wishlist`).
+
+---
+
+Bagian dari koleksi 8 undangan digital di [PortalUndangan](https://portal-undangan-eta.vercel.app). Dibuat oleh [PintuWeb](https://pintuweb.com), jasa pembuatan website.
