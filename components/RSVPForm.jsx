@@ -43,14 +43,14 @@ export default function RSVPForm({ onSubmit }) {
           </div>
         ) : (
           <form onSubmit={submit} className="mt-7 space-y-4 text-left">
-            <input name="name" value={form.name} onChange={handle} placeholder="Nama kamu" className={field} required />
-            <select name="attendance" value={form.attendance} onChange={handle} className={field}>
+            <input name="name" aria-label="Nama kamu" value={form.name} onChange={handle} placeholder="Nama kamu" className={field} required />
+            <select name="attendance" aria-label="Konfirmasi kehadiran" value={form.attendance} onChange={handle} className={field}>
               <option value="hadir">Yes, aku datang! 🎉</option>
               <option value="tidak">Maaf, belum bisa</option>
               <option value="ragu">Masih ragu</option>
             </select>
             {form.attendance === 'hadir' && (
-              <input type="number" name="guests" min={1} max={10} value={form.guests} onChange={handle} className={field} />
+              <input type="number" name="guests" aria-label="Jumlah tamu" min={1} max={10} value={form.guests} onChange={handle} className={field} />
             )}
             <button type="submit" className="w-full rounded-full bg-rose py-3 text-sm font-extrabold text-cream transition hover:bg-rose-deep">
               Kirim Konfirmasi

@@ -21,7 +21,7 @@ const body = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const __jsonld = {"@context":"https://schema.org","@type":"Event","name":"Birthday Party Kayla","description":"Undangan ulang tahun digital"};
+const __jsonld = {"@context":"https://schema.org","@type":"WebSite","name":"Undangan Ulang Tahun Digital — Pesta Kayla","description":"Contoh undangan ulang tahun anak bergaya party pass: tiket pesta, hitung mundur, wishlist kado, RSVP, ucapan, dan musik latar.","inLanguage":"id"};
 
 export const metadata = {
   metadataBase: new URL("https://undangan-birthday.vercel.app"),

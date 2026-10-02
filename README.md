@@ -1,30 +1,54 @@
-# Undangan Digital — Birthday (Party Pass)
+# Undangan Ulang Tahun — Pesta Kayla
+
+Party pass yang meriah: sampul angka usia raksasa dengan konfeti, tiket pesta berperforasi, wishlist kado, dan galeri miring ala foto tempel.
 
 **Demo live:** https://undangan-birthday.vercel.app
 
 ![Tangkapan layar](public/og.jpg)
 
-> Undangan contoh dengan data fiktif. Formulir RSVP hanya demo dan tidak mengirim data.
+> Contoh dengan data fiktif: nama, tempat, dan nomor rekening tidak sungguhan. Formulir hanya demo dan mengatakannya terus terang. Foto adalah placeholder berlabel yang siap diganti.
 
-Konsep **tiket pesta** energetik — strukturnya beda dari varian lain:
+## Fitur
 
-- **PartyCover** — sampul meriah (balon, foto bulat, *Buka Undangan*)
-- **Hero** — angka usia raksasa di belakang foto, "It's my party!"
-- **TicketPass** — komponen tanda tangan: detail acara dikemas jadi **TIKET berperforasi** ("Admit One", dresscode, seat) + add to calendar
-- **CountdownTimer** — "Party starts in"
-- **Wishlist** — ide kado (emoji)
-- **Gallery** — foto miring ceria + lightbox
-- **MapEmbed**, **RSVPForm** ("Are you coming?"), **WishesForm**, **Footer**
-- **Decorations** — konfeti jatuh warna-warni
+- Sampul “Get Your Party Pass” yang menyapa nama tamu (`?to=Nama`)
+- Tiket pesta berisi tanggal, jam, tempat, dresscode
+- Hitung mundur pesta, wishlist kado
+- Galeri, peta, RSVP & ucapan — mode demo
+- **`/kirim` — alat tuan rumah:** ketik daftar tamu, dapatkan tautan pribadi tiap tamu dan pesan WhatsApp siap kirim. Semua diproses di peramban (localStorage), tanpa server.
+- Musik latar dengan tombol putar/jeda (judul lagu tampil di tombol dan footer)
+- Halaman 404 bergaya sendiri
 
-Tema pop pink/ungu/kuning, font **Outfit + Shrikhand + Plus Jakarta Sans**. Responsif terverifikasi (320/375/768px).
+## Mengganti isi
 
-## Menjalankan
+Seluruh isi ada di satu file: `lib/data.js` (nama, tanggal, acara, galeri, musik, pesan untuk /kirim). Komponen tidak perlu disentuh.
+
+- **Tanggal:** ubah teks tanggal *dan* nilai ISO (`mainDate`, `start`, `end`) — hitung mundur dan tombol kalender memakai nilai ISO.
+- **Peta:** contoh menunjuk area kota; ganti `q=` di `location.mapEmbed` dan `mapLink` dengan nama tempat atau koordinat.
+- **Foto:** timpa berkas di `public/images/` dengan nama yang sama (potret 3:4).
+- **Musik:** timpa `public/music/latar.mp3`, lalu ubah `music.title` dan `music.credit`. Pastikan Anda berhak memakai lagunya.
+
+## Gambar & kredit
+
+- `public/images/*.webp` — placeholder berlabel buatan sendiri (bukan foto stok), digambar ulang dari SVG agar tidak bergantung pada layanan luar.
+- `public/music/latar.mp3` — *Maple Leaf Rag — Scott Joplin*, rekaman US Air Force Band, domain publik — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maple_Leaf_Rag_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3). Diperkecil ke MP3 mono 80 kbps.
+
+## Teknologi
+
+- Next.js 15.5 (App Router) dan React 19
+- Tailwind CSS v4 (token tema di `app/globals.css`)
+- Framer Motion, lucide-react
+- Font: Outfit, Shrikhand, Plus Jakarta Sans (next/font)
+- SEO: metadata, Open Graph, JSON-LD (WebSite), sitemap.xml, robots.txt
+
+## Menjalankan secara lokal
+
 ```bash
-npm install && npm run dev
+npm install
+npm run dev
 ```
-Semua konten di **`lib/data.js`** (objek `person`, `party`, `wishlist`).
+
+Buka http://localhost:3000 — coba juga http://localhost:3000/?to=Nama+Tamu dan http://localhost:3000/kirim.
 
 ---
 
-Bagian dari koleksi 8 undangan digital di [PortalUndangan](https://portal-undangan-eta.vercel.app). Dibuat oleh [PintuWeb](https://pintuweb.com), jasa pembuatan website.
+Bagian dari koleksi 8 undangan digital di [PortalUndangan](https://portal-undangan-eta.vercel.app). Dibuat oleh [PintuWeb](https://www.pintuweb.com), jasa pembuatan website.
